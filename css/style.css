@@ -14,7 +14,6 @@
     animation: logoAnimation 5s forwards;
 }
 
-
 /*Step 2: Add font family and backgrond image/color*/
 body {
     font-family: "Poppins", serif;
@@ -83,42 +82,44 @@ header {
 /*For Screen-size is greater than 900px*/
 @media screen and (min-width: 900px) {
     /*Step 11: Style the header tag and nav_links class to match the example*/
-    header, .nav_links {
+    header {
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        
+    }
+
+    .nav_links {
+        flex-direction: row;
     }
 
     /*Step 12: Style pricing and card classes to match the example*/
-    .price, .card {
+    .card {
         flex-basis: 275px;
     }
 
+    .pricing {
+        align-items: center;
+    }
+
     /*Step 13: Style first header so that it remains visible at the top of the screen*/
-    header:first-of-type {
+    /*❗️check later*/
+    body > header {
         position: sticky;
         top: 0;
-        z-index: 1;
-        /*check later*/
+        /* z-index: 1; */ /*❓Is it ok if I get rid of this line?*/
     }
 }
 
 /* Step 14: For users who prefers reduced motion */
-@media screen and (prefers-reduced-motion: reduce) {
+@media all and (prefers-reduced-motion: reduce) {
     #logo {
         animation:none;
     }
 }
 
 /* When the page is printed in portrait mode */
-@media print and (orientation: portrait){ /* ❗️check this */
-    /* ❗️check this */
-    * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    
+@media print {
     /* Step 15 & 16: Change the font and remove background image */
     body {
         font-family: Arial, Helvetica;
@@ -126,19 +127,20 @@ header {
     }
 
     /* Step 17: style nav/nav_links to match the example */
-    .nav { /* ❗️check this */
-        display: flex;
-        flex-direction: row;
+    header nav { /* ❗️check this */
+        width: 100%; /*❓do I need to change the nav to be flex? */
     }
 
-    .nav_links { /* ❗️check this */
+    .nav_links { 
+        display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-around; /* ❗️check this */
     }
 
     /* Step 18: style pricing class so that the elements align along the bottom /* check this */
     .pricing {
         align-items: flex-end;
+        flex-wrap: nowrap;
     }
     
     /* Step 19: style the card class */
@@ -148,8 +150,8 @@ header {
     }
 
     /* Step 20: Hide the gallery section */
-    .gallery {
-        visibility: hidden;
+    #gallery, .gallery {
+        display: none;
     }
 
     /* Step 21: Add a thumbs up emoji after the card class */
