@@ -9,12 +9,12 @@
         opacity: 1;
     }
 }
-
+/*The animation will take 5 seconds and only happen when the page is loaded.*/
 #logo {
     animation: logoAnimation 5s forwards;
 }
 
-/*Step 2: Add font family and backgrond image/color*/
+/*Step 2: Add font family and background image or color*/
 body {
     font-family: "Poppins", serif;
     background-image: url("../images/concrete_seamless.png");
@@ -44,7 +44,7 @@ header {
     background-color: #288088;
     border: solid 2px #45ADAD;
     padding: 20px 0;
-    border-top-left-radius: 50px; /*check later*/
+    border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
 
@@ -103,15 +103,13 @@ header {
     }
 
     /*Step 13: Style first header so that it remains visible at the top of the screen*/
-    /*❗️check later*/
     body > header {
         position: sticky;
         top: 0;
-        /* z-index: 1; */ /*❓Is it ok if I get rid of this line?*/
     }
 }
 
-/* Step 14: For users who prefers reduced motion */
+/* Step 14: Disable the logo's animation effect for users who prefers reduced motion */
 @media all and (prefers-reduced-motion: reduce) {
     #logo {
         animation:none;
@@ -127,17 +125,17 @@ header {
     }
 
     /* Step 17: style nav/nav_links to match the example */
-    header nav { /* ❗️check this */
-        width: 100%; /*❓do I need to change the nav to be flex? */
+    header nav {
+        width: 100%;
     }
 
     .nav_links { 
         display: flex;
         flex-direction: row;
-        justify-content: space-around; /* ❗️check this */
+        justify-content: space-around;
     }
 
-    /* Step 18: style pricing class so that the elements align along the bottom /* check this */
+    /* Step 18: style pricing class so that the elements align along the bottom */
     .pricing {
         align-items: flex-end;
         flex-wrap: nowrap;
@@ -154,7 +152,7 @@ header {
         display: none;
     }
 
-    /* Step 21: Add a thumbs up emoji after the card class */
+    /* Step 21: Add a thumbs up emoji after the second list item in each card */
     .pricing .card ul li:nth-child(2)::after {
         content: "\1F44D";
     }
